@@ -1,0 +1,31 @@
+version: '3.1'
+
+services:
+  redmine:
+    container_name: redmine
+    image: redmine
+    restart: always
+    ports:
+      - 3000:3000
+    environment:
+      REDMINE_DB_MYSQL: db
+      REDMINE_DB_PASSWORD: Write Password
+      REDMINE_DB_DATABASE: redmine
+      REDMINE_DB_ENCODING: utf8
+    volumes:
+      - /redmine/data:/usr/src/redmine/files
+      - /redmine/plugins:/usr/src/redmine/plugins
+      - /redmine/themes:/usr/src/redmine/public/themes
+
+  db:
+    container_name: mariadb
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Write Password
+      MYSQL_DATABASE: redmine
+    volumes:
+      - /mariadb/data/storage/path:/var/lib/mysql
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
