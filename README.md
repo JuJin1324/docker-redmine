@@ -24,3 +24,8 @@ cd /home/docker-redmine
 docker-compose up
 ```   
 
+## Confirm
+```bash
+docker ps
+
+```

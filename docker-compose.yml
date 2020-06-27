@@ -15,7 +15,7 @@ services:
       # REDMINE_DB_PORT: 3306
       REDMINE_DB_ENCODING: utf8
     volumes:
-      - ${REDMINE_DATA_DIR_PATH}:/usr/src/redmine/files
+      - ${REDMINE_FILES_DIR_PATH}:/usr/src/redmine/files
       - ${REDMINE_PLUGINS_DIR_PATH}:/usr/src/redmine/plugins
       - ${REDMINE_THEMES_DIR_PATH}:/usr/src/redmine/public/themes
 
