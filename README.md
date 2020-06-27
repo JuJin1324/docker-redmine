@@ -19,9 +19,9 @@ Official Web Site: [Docker Web Site](https://www.docker.com/products/docker-desk
 ### docker-compose 실행
 ```bash
 # 현재 프로젝트의 디렉터리로 이동
-cd /home/docker-redmine
-# run docker-compose
-docker-compose up
+cd ~/docker-redmine
+# docker-compose 데몬으로 실행
+docker-compose up -d
 ```   
 
 ## Confirm
@@ -29,3 +29,11 @@ docker-compose up
 docker ps
 
 ```
+
+## Start Redmine!
+### URL
+웹 브라우저에서 `localhost:3000` 으로 접속
+
+### admin 계정
+처음 접속시 admin 계정 정보(ID/PW): admin/admin
+

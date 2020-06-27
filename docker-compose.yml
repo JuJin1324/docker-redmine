@@ -9,7 +9,7 @@ services:
       - 3000:3000
     environment:
       REDMINE_DB_MYSQL: db
-      REDMINE_DB_PASSWORD: ${REDMINE_DB_PASSWORD}
+      REDMINE_DB_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       REDMINE_DB_DATABASE: redmine
       # Default MySQL Port is 3306
       # REDMINE_DB_PORT: 3306
@@ -30,6 +30,8 @@ services:
       MYSQL_DATABASE: redmine
     volumes:
       - ${MARIADB_STORAGE_DIR_PATH}:/var/lib/mysql
+      - ${MARIADB_CONFD_DIR_PATH}:/etc/mysql/conf.d:ro
+      - ${MARIADB_LOG_DIR_PATH}:/var/log/maria
     command:
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
