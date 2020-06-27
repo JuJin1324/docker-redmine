@@ -11,6 +11,8 @@ services:
       REDMINE_DB_MYSQL: db
       REDMINE_DB_PASSWORD: ${REDMINE_DB_PASSWORD}
       REDMINE_DB_DATABASE: redmine
+      # Default MySQL Port is 3306
+      # REDMINE_DB_PORT: 3306
       REDMINE_DB_ENCODING: utf8
     volumes:
       - ${REDMINE_DATA_DIR_PATH}:/usr/src/redmine/files
@@ -21,6 +23,8 @@ services:
     container_name: mariadb
     image: mariadb
     restart: always
+    ports:
+      - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: redmine
