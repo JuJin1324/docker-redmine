@@ -15,6 +15,10 @@ Official Web Site: [Docker Web Site](https://www.docker.com/products/docker-desk
 
 ## Execute
 ### docker-compose 실행
+실행 주의
+> docker-compose up 처음 실행 시에 레드마인이 재대로 동작하지 않는다: redmine 컨테이너보다 db 컨테이너가 먼저 실행되도록 설정이 필요하다.   
+> 차후에 추가 예정.
+
 ```bash
 # 현재 프로젝트의 디렉터리로 이동
 cd ~/docker-redmine
