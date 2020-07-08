@@ -1,12 +1,14 @@
-version: '3.1'
+version: '3'
 
 services:
   redmine:
     container_name: redmine
     image: redmine
-    restart: always
     ports:
       - 3000:3000
+    depends_on:
+      - db
+    restart: always
     environment:
       REDMINE_DB_MYSQL: db
       REDMINE_DB_USERNAME: ${MYSQL_REDMINE_USER}
@@ -33,8 +35,7 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
     volumes:
       - ${MARIADB_STORAGE_DIR_PATH}:/var/lib/mysql
-      - ${MARIADB_CONFD_DIR_PATH}:/etc/mysql/conf.d:ro
-      - ${MARIADB_LOG_DIR_PATH}:/var/log/maria
+      - ${MARIADB_CONFD_DIR_PATH}:/etc/mysql
     command:
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
