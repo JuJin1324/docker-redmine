@@ -8,7 +8,7 @@ services:
       - 3000:3000
     depends_on:
       - db
-    restart: always
+    restart: on-failure
     environment:
       REDMINE_DB_MYSQL: db
       REDMINE_DB_USERNAME: ${MYSQL_REDMINE_USER}
@@ -23,7 +23,7 @@ services:
       - ${REDMINE_THEMES_DIR_PATH}:/usr/src/redmine/public/themes
 
   db:
-    container_name: mariadb
+    container_name: redmine-db
     image: mariadb
     restart: always
     ports:
