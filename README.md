@@ -86,3 +86,16 @@ Volume 맵핑 시에는 시스템 값을 가지고 있는 디렉터리는 피하
 
 
 ## Restore
+MYSQL_REDMINE_USER 및 MYSQL_REDMINE_PASSWORD은 .env 파일을 참고해서 수정하여 실행한다.   
+```bash
+docker-compose exec -T db bash -c 'mysql -u MYSQL_REDMINE_USER -p"MYSQL_REDMINE_PASSWORD"' < ./your/dummyfile/path/mariadb_dummy_name.sql
+# restart docker-compose containers after restore database
+docker-compose restart
+```
+
+예시:
+```bash
+docker-compose exec -T db bash -c 'mysql -u redmine -p"redmine1324" redmine' < ./mariadb/redmine-db-dummy-2020-07-09.sql
+# restart docker-compose containers after restore database
+docker-compose restart
+```
